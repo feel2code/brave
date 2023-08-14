@@ -1,0 +1,11 @@
+#!/bin/bash
+# script for Batch Remove Audio from Video Easily (BRAVE)
+echo 'Starting to remove audio'
+script="$( dirname -- "$BASH_SOURCE"; )";
+for entry in `ls $script`; do
+    if [[ "$entry" == *'brave'* ]] | [[ "$entry" == *'ffmpeg'* ]]
+    then echo 'Passing brave, ffmpeg'
+    else ffmpeg -i "${script}/${entry}" -c copy -an "${script}/without_audio_${entry}"
+    fi
+done
+echo 'All videos already processed! Done!'
