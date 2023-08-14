@@ -37,7 +37,7 @@ In most popular Linux distributes and macOS Bash already installed!
 
 1. Clone this repository or just save it via GitHub button:
    ```bash
-   git clone https://github.com/yourusername/brave.git
+   git clone https://github.com/feel2code/brave.git
    cd brave
 
 2. Make the `brave` script executable via terminal or via file properties:
