@@ -1,11 +1,40 @@
 #!/bin/bash
-# script for Batch Remove Audio from Video Easily (BRAVE)
-echo 'Starting to remove audio'
+# Batch Remove Audio from Video Easily (BRAVE)
+echo "Script for Batch Remove Audio from Video Easily (BRAVE). Also you can easily merge videos into one."
 script="$( dirname -- "$BASH_SOURCE"; )";
-for entry in `ls $script`; do
-    if [[ "$entry" == *'brave'* ]] | [[ "$entry" == *'ffmpeg'* ]]
-    then echo 'Passing brave, ffmpeg'
-    else ffmpeg -i "${script}/${entry}" -c copy -an "${script}/without_audio_${entry}"
-    fi
+PS3="Please select function: "
+options=("Batch remove audio from videos" "Merge videos into one file" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Batch remove audio from videos")
+            echo "Starting to remove audio"
+            for entry in `ls $script`; do
+                if [[ "$entry" == *'brave'* ]] | [[ "$entry" == *'ffmpeg'* ]]
+                then echo 'Passing brave, ffmpeg'
+                else ffmpeg -i "${script}/${entry}" -c copy -an "${script}/without_audio_${entry}"
+                fi
+            done
+            echo 'All videos already processed! Done! Exiting...'
+            break
+            ;;
+        "Merge videos into one file")
+            echo "Starting to merge videos"
+            for entry in `ls $script`; do
+              if [[ "$entry" == *'brave'* ]] | [[ "$entry" == *'ffmpeg'* ]]
+              then echo 'Passing brave, ffmpeg'
+              else echo "file '$entry'"  >> videos.txt
+              fi
+            done
+            ffmpeg -f concat -i videos.txt -c copy merged.mkv
+            rm videos.txt
+            echo 'All videos already merged! Done! Exiting...'
+            break
+            ;;
+        "Quit")
+            echo 'Ok. Exiting...'
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
 done
-echo 'All videos already processed! Done!'

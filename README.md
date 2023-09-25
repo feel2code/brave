@@ -1,7 +1,11 @@
 
-# BRAVE - Batch Remove Audio from Video Easily
+# BRAVE
 
-BRAVE is a simple command-line tool (script) for easily removing audio from multiple video files at once. It's written in Bash shell scripting language, making it compatible with various Unix-like systems.
+BRAVE is a simple command-line tool (script) for:
+- easily removing audio from multiple video files at once.
+- easily merge videos into one video file.
+
+It's written in Bash shell scripting language, making it compatible with various Unix-like systems.
 
 ## Table of Contents
 
@@ -15,11 +19,12 @@ BRAVE is a simple command-line tool (script) for easily removing audio from mult
 
 ## Introduction
 
-BRAVE (Batch Remove Audio from Video Easily) is designed to simplify the process of removing audio tracks from video files in bulk. Whether you want to create muted versions of videos or prepare content for further editing, BRAVE offers a straightforward solution.
+BRAVE (Batch Remove Audio from Video Easily) is designed to simplify the process of batch working with multiple video files.
 
 ## Features
 
 - Batch removal of audio from multiple video files.
+- Merge several videos into one video.
 - Support for various video formats.
 - Lightweight and efficient, utilizing Bash scripting capabilities.
 - Easy-to-use command-line interface or just click on it in GUI mode.
@@ -50,6 +55,12 @@ In most popular Linux distributes and macOS Bash already installed!
 2. Start the BRAVE tool by clicking on it in your favorite file manager or just in terminal:
    ```bash
    ./brave
+3. Select option that you need:
+   ```markdown
+   1) Batch remove audio from videos
+   2) Merge videos into one file
+   3) Quit
+   ```
 
 ## Contributing
 Contributions are welcome! Feel free to submit bug reports, feature requests, or pull requests on [GitHub](https://github.com/feel2code/brave).
